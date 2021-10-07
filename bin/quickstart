@@ -1,7 +1,0 @@
-#!/bin/sh
-
-neofetch
-
-figlet "QUICK START"
-
-echo "Enter an option:"

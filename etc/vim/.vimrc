@@ -6,14 +6,13 @@ colorscheme monokai
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set go-=m
-set go-=T
-set go-=ret
-set guifont=Hack\ Nerd\ Font\ Mono\ Regular\ 20
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vundle/bundle/Vundle.vim
 call vundle#begin('~/.vundle/plugins')
+
+" Set GUI Options
+set guifont=HackGenNerd:h16b
+behave mswin
 
 " Begin Plugins
 
@@ -24,6 +23,8 @@ Plugin 'tpope/vim-sensible'
 
 " Code completion
 " Plugin 'valloric/youcompleteme'
+
+" Nerdtree
 Plugin 'preservim/nerdtree'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 
@@ -43,7 +44,6 @@ call vundle#end()
 filetype plugin indent on    " required for vundle
 
 let g:ycm_clangd_binary_path = "/usr/bin/clangd"
-let g:airline_theme = 'onedark'
 
 if !exists('g:airline_symbols')
 				let g:airline_symbols = {}
@@ -58,7 +58,6 @@ endif
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.linenr = '☰'
     let g:airline_symbols.maxlinenr = ''
-
 " " Brief help
 " " :PluginList       - lists configured plugins
 " " :PluginInstall    - installs plugins; append `!` to update or just
@@ -115,7 +114,8 @@ syntax on
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
-set tabstop=2
+set tabstop=2 shiftwidth=2 expandtab
+
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list

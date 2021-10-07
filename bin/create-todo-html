@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pandoc -f org ~/org/todo-lists/todo-10-04-2021.org -t html+native_divs > ~/usr/notes/output/todo-10-04-2021.html

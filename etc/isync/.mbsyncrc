@@ -1,22 +1,23 @@
-IMAPAccount protonmail-ltaylor255
-Host localhost
-Port 1143
-SSLType None
-User ltaylor255
-PassCmd "~/bin/bridgepass"
-
-IMAPStore protonmail-ltaylor255
-Account protonmail-ltaylor255
-
-MaildirStore protonmail-ltaylor255-local
-Subfolders Verbatim
-Path ~/.mail/proton/
-Inbox ~/.mail/proton/Inbox
-
-Channel protonmail-ltaylor255
-Master :protonmail-ltaylor255:
-Slave :protonmail-ltaylor255-local:
-
 SyncState *
 Sync New ReNew Flags
+
+IMAPAccount ltaylor-zlinekitchen
+Host imap.gmail.com
+Port 993
+SSLType IMAPS
+User ltaylor@zlinekitchen.com
+PassCmd "pass show ltaylor-zline-email"
+
+IMAPStore ltaylor-zlinekitchen
+Account ltaylor-zlinekitchen
+
+MaildirStore ltaylor-zlinekitchen-local
+Subfolders Verbatim
+Path ~/.mail/ltaylor-zlinekitchen/
+Inbox ~/.mail/ltaylor-zlinekitchen/Inbox
+
+Channel ltaylor-zlinekitchen
+Far :ltaylor-zlinekitchen:
+Near :ltaylor-zlinekitchen-local:
+
 

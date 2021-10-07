@@ -8,6 +8,7 @@
 
     # View the current working tree status using the short format
     s = status -s
+    ss = status
 
     # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -17,12 +18,15 @@
 
     # Pull in remote changes for the current repository and all its submodules
     p = !"git pull; git submodule foreach git pull origin master"
+    f = !"git fetch;"
+    fp = !"git fetch;git pull --rebase=true"
 
     # Clone a repository including all submodules
     c = clone --recursive
 
     # Commit all changes
     ca = !git add -A && git commit -av
+    us = !"git restore --staged $1"
 
     # Switch to a branch, creating it if necessary
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -33,7 +37,7 @@
     remotes = remote -v
 
     # Amend the currently staged files to the latest commit
-    amend = commit --amend --reuse-message=HEAD
+    ca = commit --amend --reuse-message=HEAD
 
     # Credit an author on the latest commit
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
@@ -64,16 +68,7 @@
     contributors = shortlog --summary --numbered
 
     # Merge GitHub pull request on top of the `master` branch
-    mpr = "!f() { \
-        if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-            git fetch origin refs/pull/$1/head:pr/$1 && \
-            git rebase master pr/$1 && \
-            git checkout master && \
-            git merge pr/$1 && \
-            git branch -D pr/$1 && \
-            git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
-        fi \
-    }; f"
+    # mpr = "!f() { \
 
 [apply]
 
@@ -138,6 +133,7 @@
 
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    tool=meld
 
 [push]
 
@@ -170,5 +166,10 @@
 
     insteadOf = "gist:"
 [user]
-	name = luke
-	email = ltaylor255@gmail.com
+	name = Luke Taylor
+	email = ltaylor@zlinekitchen.com
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

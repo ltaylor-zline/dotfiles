@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ -f $1 ]
-then
-  rm ~/.bgimage
-  ln -s $1 ~/.bgimage
-fi
-
-feh --bg-scale ~/.bgimage

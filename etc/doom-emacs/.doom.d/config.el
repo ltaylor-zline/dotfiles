@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Luke Taylor"
-      user-mail-address "luke@lptsoftware.com")
+      user-mail-address "ltaylor@zlinekitchen.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,22 +19,29 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Hack Nerd Font Mono" :size 28)
-      doom-variable-pitch-font (font-spec :family "Noto Sans CJK SC" :size 32))
+(setq doom-font (font-spec :family "HackGen35Nerd Console" :size 16 :weight 'normal)
+       doom-variable-pitch-font (font-spec :family "HackGen35Nerd Console" :size 16))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
+;; (setq doom-theme 'doom-molokai)
 (setq doom-theme 'doom-monokai-classic)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/org")
+(setq org-agenda-files (quote ("~/org/todo-lists/")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type `relative)
+(setq display-line-numbers-type t)
+(setq frame-background-mode 10)
 
+(add-to-list 'load-path "/usr/local/share/emacs/site-list/mu4e")
+(doom/set-frame-opacity 92)
+
+;; (setenv "PKG_CONFIG_PATH" "/usr/local/pkgconfig")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
