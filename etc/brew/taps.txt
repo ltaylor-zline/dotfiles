@@ -1,0 +1,19 @@
+homebrew/cask: 3963 casks
+/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask (4,740 files, 338.3MB)
+From: https://github.com/Homebrew/homebrew-cask
+
+homebrew/cask-fonts: 1846 casks
+/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts (2,460 files, 21.9MB)
+From: https://github.com/Homebrew/homebrew-cask-fonts
+
+homebrew/core: 3 commands, 5969 formulae
+/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core (6,321 files, 501.7MB)
+From: https://github.com/Homebrew/homebrew-core
+
+isen-ng/dotnet-sdk-versions: 15 casks
+/usr/local/Homebrew/Library/Taps/isen-ng/homebrew-dotnet-sdk-versions (238 files, 436.0KB)
+From: https://github.com/isen-ng/homebrew-dotnet-sdk-versions
+
+jimeh/emacs-builds: 5 casks
+/usr/local/Homebrew/Library/Taps/jimeh/homebrew-emacs-builds (287 files, 680.1KB)
+From: https://github.com/jimeh/homebrew-emacs-builds
